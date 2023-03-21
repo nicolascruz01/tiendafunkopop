@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "name": "Funko Pop Movies: Rocky 45Th- Rocky W/Gold Belt",
+        "description": "Rocky Balboa es un boxeador estadounidense en la película Rocky de 1976, en la que boxea en un club de peleas de bajo perfil llamado la cubeta de sangre tú podrías sentirte dentro de este mundo deportivo con tu POP Movies: Rocky 45th- Rocky Balboa juguete divertido y práctico para crear competencias con tus amigos, compartir conocimientos y coleccionarlos ideal para adultos y niños Esta increíble figura fabricada en vinilo con cabeza oscilante llamada POP de la marca Funko también conocidos como Funko POP, hace parte de uno de los tantos disponibles para coleccionar. Cada personaje Funko viene en una caja con ventana de visualización que los hace ideales para hacer un regalo sensacional ¡Diviértete buscando y coleccionando todos los personajes de tus películas, series, programas, animaciones, juegos favoritos y más! No es adecuado para niños y niñas menores de 36 meses.",
+        "price": 64900,
+        "stock": 4,
+        "category": "estandar",
+        "image": "https://cdn.shopify.com/s/files/1/0447/5168/3749/products/03102-1_360x.jpg?v=1663601298"
+    },
+    {
+        "id": "2",
+        "name": "Funko Pop Deluxe: Star Wars Darthvader & Snowtrooper",
+        "description": "Hace mucho tiempo en una galaxia muy, muy lejana…. La batalla de la Rebelión contra las tropas imperiales liderada por Luke Skywalker ha sido trasladada a ¡Funko Pop!. Encuentra la versión Funko Pop Deluxe de Star Wars para celebrar el 40 aniversario del estreno de Star Wars: Episodio V- El Impero contraataca. Recrea la escena de Darth Vader y Snowtrooper en el planeta Hoth. Adiciona a esta versión de Star Wars a tu colección Funko Pop.",
+        "price": 174900,
+        "stock": 14,
+        "category": "deluxe",
+        "image": "https://cdn.shopify.com/s/files/1/0447/5168/3749/products/97181-1_360x.jpg?v=1614206691"
+    },
+    {
+        "id": "3",
+        "name": "Funko Pop Llavero: Liverpool - Mohamed Salah",
+        "description": "¡Represente a su equipo sobre la marcha con un Pocket Pop! Llavero de Mohamed Salah, delantero del Liverpool. ¡Colecciona a todos tus jugadores de fútbol favoritos del Liverpool como Pops! y llaveros! El llavero de vinilo mide aproximadamente 4 centímetros de largo.",
+        "price": 34900,
+        "stock": 2,
+        "category": "llavero",
+        "image": "https://cdn.shopify.com/s/files/1/0447/5168/3749/products/16338-1_360x.jpg?v=1642515134"
+    }
+]
