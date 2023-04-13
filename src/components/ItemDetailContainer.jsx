@@ -1,34 +1,36 @@
 import ItemDetail from './ItemDetail';
-import Data from './data.json';
-
+import Loader from './Loader';
+import { useParams } from 'react-router-dom';
+import { useState ,useEffect } from 'react';
+import { doc, getDoc, getFirestore} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
-  const getData = () =>{
-    return new Promise (( resolve , reject) => {
-      if(Data.length === 0){
-        reject (new Error ('No hay datos'));
-      }
-      setTimeout(()=> {
-        resolve(Data);
-        }, 2000);
-    });
-  };
-
-  async function fetchData (){
-    try{
-      const dataFetched = await getData();
-    }catch(err){
-      console.log(err);
+  const {id}=useParams();
+  const [funkos,setFunkos]=useState([]);
+  const [loader,setloader]= useState(true)
+  useEffect(()=>{
+    const db = getFirestore();
+    const oneItem = doc(db , "funkos",`${id}`)
+    getDoc(oneItem).then ((snapshot)=> {
+    if (snapshot.exists()){
+      const docs=snapshot.data();
+      setFunkos(docs)
+      setloader (false);
     }
-  };
+    });
+  },[id])
 
-  fetchData();
-
+  if (loader){
+    return <Loader/>
+  }
   return (
-    <>
-      <ItemDetail detail={Data} />
+        <>
+    <ItemDetail
+    data= {funkos}
+    id={id}
+    />
     </>
   )
-};
+}
 
 export default ItemDetailContainer

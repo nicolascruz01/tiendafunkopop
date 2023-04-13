@@ -1,42 +1,42 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import Loader from './Loader';
 import ItemList from './ItemList';
-import Data from './data.json';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
 const ItemListContainer = () => {
+  const [funkos, setfunkos] = useState([]);
+  const [loader, setLoader] = useState(true);
+  const { category } = useParams();
 
-  const getData = () => {
-    return new Promise ((resolve, reject) => {
-      if (Data.length === 0){
-        reject(new Error("No hay productos."))
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000);
+  useEffect(() => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, 'funkos');
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setfunkos(docs);
+      setLoader(false);
     });
-  };
+  }, []);
 
-  async function fetchData(){
-    try{
-      const dataFetched = await getData();
-    }catch(err){
-      console.log(err);
-    }
+  const dataFilter = funkos.filter((cateData) => cateData.category === category);
+
+
+  useEffect(() => {}, [dataFilter]);
+
+  if (loader) {
+    return <Loader />;
   }
 
-  fetchData();
-
-  const { category } = useParams();
-  const datafilter = Data.filter((catedata) => catedata.category === category);
-  
-  useEffect(() => {
-  }, [datafilter])
-  
   return (
     <>
-      {category ? <ItemList data = {datafilter} />: <ItemList data= {Data}/>}
+      {category ? (
+        <ItemList data={dataFilter} />
+      ) : (
+        <ItemList data={funkos} />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default React.memo(ItemListContainer);

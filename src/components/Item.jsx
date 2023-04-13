@@ -4,7 +4,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 
 
-const Item = ({id , name , price , category , stock , image}) => {
+const Item = ({id, name, price, category, stock, image}) => {
     return (
         <Card className="text-center"  border="success" style={{ width: '18rem', margin:'3rem', paddingTop:'1rem' }} key={id}>
             <Card.Img variant="top" src={image} />

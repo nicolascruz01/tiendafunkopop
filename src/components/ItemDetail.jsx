@@ -2,44 +2,42 @@ import ItemCount from './ItemCount';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
-const ItemDetail = ({ detail }) => {
 
-    const {id} = useParams();
-    const idFilter = detail.filter ((idData) => idData.id === id);
-
-    useEffect(() => {
-    }, [idFilter]);
+const ItemDetail = ({data,id}) => {
     return (
     <>
         <Row className="justify-content-md-center" >
-        {idFilter.map((idData) =>
-            <Card border="warning" style={{ width: '25rem', margin:'3rem',paddingTop:'1rem' }} key={idData.id}>
-                <Card.Img variant="top" src={idData.image} />
+            <Card border="warning" style={{ width: '25rem', margin:'3rem',paddingTop:'1rem' }} key={id}>
+                <Card.Img variant="top" src={data.image} />
                 <Card.Body>
-                    <Card.Title> {idData.name} </Card.Title>
+                    <Card.Title> {data.name} </Card.Title>
                     <Card.Text>
-                        {idData.description}
+                        {data.description}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
                     <ListGroup.Item>
-                        <p> Precio: ${idData.price} </p>
+                        <p> Precio: ${data.price} </p>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <p> Stock: {idData.stock} </p>
+                        <p> Stock: {data.stock} </p>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <p> Categoría: {idData.category} </p>
+                        <p> Categoría: {data.category} </p>
                     </ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                    <ItemCount/>
+                    <ItemCount
+                     id={id}
+                     image={data.image}
+                     name={data.name}
+                     stock={data.stock}
+                     price={data.price}
+                    />
                 </Card.Body>
             </Card>
-        )};
+        ;
         </Row>
     </>
     );
